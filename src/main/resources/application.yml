@@ -1,0 +1,21 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: seckill-backend
+  # 本地默认使用内存库，直接 mvn spring-boot:run 即可调通接口；
+  # 部署到 ECS 时用命令行参数覆盖为 RDS for MySQL 的地址（见 README）。
+  datasource:
+    url: jdbc:h2:mem:seckill;MODE=MySQL;NON_KEYWORDS=USER;DB_CLOSE_DELAY=-1
+    username: sa
+    password: ''
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    show-sql: false
+
+logging:
+  level:
+    root: info
